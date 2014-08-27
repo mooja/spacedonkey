@@ -1,3 +1,4 @@
 (A) create a list view fuction for blog entries
 (B) Add tags to the blog entry model
 (C) Make Navigation display where on the website you actually are
+(D) Remake the template to something I can actually understand
