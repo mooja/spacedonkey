@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>My Blog</h3>
+
+{% if post_list %}
+    {% for post in post_list %}
+    <p>{{ post.title }}</p>
+    <p>{{ post.text }}</p>
+    {% endfor %}
+{% else %}
+    <p> No Blog Posts Found! </p>
+{% endif %}
+{% endblock %}
