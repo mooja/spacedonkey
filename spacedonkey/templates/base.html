@@ -7,7 +7,7 @@
     </head>
     <body>
     <!-- navbar begin -->
-    <!-- {% block navbar %} -->
+    {% block navbar %}
         <div class="navbar navbar-default">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -29,14 +29,14 @@
             </ul>
           </div>
         </div>
-        <!-- {% endblock %} -->
+        {% endblock %}
         <!-- navbar end -->
 
         <!-- content container -->
        <div class="container">
          <div class="row">
            <div class="col-lg-8">
-            <!-- {% block content %} -->
+            {% block content %}
             <h2> Basic Layout </h2>
             <p class="lead"> Barebones layout. My next challenge is to work on this website for thirty minutes every day. The work will consist of either adding content to the website, or improving its technical aspects.
             <h2>Example body text</h2>
@@ -45,7 +45,7 @@
             <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
             <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
             <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-            <!-- {% endblock %} -->
+            {% endblock %}
 
            </div>
           </div>
