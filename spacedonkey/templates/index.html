@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3> Welcome to spacedonkey!</h3>
+ <div class="row">
+   <div class="col-lg-6">
+       <h3> Welcome to <strong>Spacedonkey</strong></h3>
 
-<p> My name is Max and I'm a budding web developer.</p>
+    <p class="lead"> I'm <strong>Max,</strong> a science fiction and open source enthusiast.</p>
 
-<p>I'm using this website to learn django web framework. I made a commitment to work on it for at least 30 minutes every day. You are welcome to follow my progress on <a href="https://github.com/mooja/spacedonkey">github</a>!</p>
+    <p>I created this little website in order to learn <a href="http://djangoproject.com">Django Web Framework</a> from the ground up. My plan is to spend 30 minutes every day improving spacedonkey.org with new features or new content. Feel welcome  to follow my progress on my <a href="http://spacedonkey.org/blog/">blog</a> or even take a look at my <a href="https://github.com/mooja/spacedonkey">github</a>!</p>
+   </div>
+   <div class="col-lg-5">
+       <center>
+       <img src="http://localhost/static/maxpizza.jpg" class="img-rounded img-responsive" alt="responsive image">
+       </center>
+   </div>
+ </div>
 {% endblock %}

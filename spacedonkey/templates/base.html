@@ -3,7 +3,7 @@
     <head>
     <title>{% block title %} Spacedonkey.org {% endblock %}</title>
         <!-- Bootstrap core CSS -->
-        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://spacedonkey.org/static/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
     <!-- navbar begin -->
@@ -34,9 +34,9 @@
 
         <!-- content container -->
        <div class="container">
+        {% block content %}
          <div class="row">
            <div class="col-lg-8">
-            {% block content %}
             <h2> Basic Layout </h2>
             <p class="lead"> Barebones layout. My next challenge is to work on this website for thirty minutes every day. The work will consist of either adding content to the website, or improving its technical aspects.
             <h2>Example body text</h2>
@@ -45,10 +45,9 @@
             <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
             <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
             <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-            {% endblock %}
-
            </div>
           </div>
+          {% endblock %}
        </div>
        <!-- /.container -->
 
