@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>{% block title %} Max's little corner of the internet {% endblock %}</title>
+    <title>{% block title %} Spacedonkey.org {% endblock %}</title>
         <!-- Bootstrap core CSS -->
         <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        {% block navbar %}
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Spacedonkey.org</a>
-            </div>
-            <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Blog</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#contact">Projects</a></li>
-                <li><a href="#contact">Github</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </div><!--/.nav-collapse -->
+    <!-- navbar begin -->
+    <!-- {% block navbar %} -->
+        <div class="navbar navbar-default">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://spacedonkey.org/"><span class="glyphicon glyphicon-th"></span> Spacedonkey.org</a>
+          </div>
+          <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#blog">Blog</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://github.com/mooja/">GitHub</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
           </div>
         </div>
-        </div>
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">spacedonkey.org</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Blog</a></li>
-                        <li><a href="#about">About Me</a></li>
-                        <li><a href="#contact">Projects</a></li>
-                        <li><a href="#contact">Github</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        {% endblock %}
-        <div class="container">
-            <div class="starter-template">
-                {% block content %}
-                <h1> Spacedonkey.org basic layout. </h1>
-                <p class="lead"> This is my imperfect and barebones layout. My next challenge is to work on this website for thirty minutes every day. The work will consist of either adding content to the website, or improving its technical aspects.
-                {% endblock %}
-            </div>
-        </div>
+        <!-- {% endblock %} -->
+        <!-- navbar end -->
+
+        <!-- content container -->
+       <div class="container">
+         <div class="row">
+           <div class="col-lg-8">
+            <!-- {% block content %} -->
+            <h2> Basic Layout </h2>
+            <p class="lead"> Barebones layout. My next challenge is to work on this website for thirty minutes every day. The work will consist of either adding content to the website, or improving its technical aspects.
+            <h2>Example body text</h2>
+            <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+            <p><small>This line of text is meant to be treated as fine print.</small></p>
+            <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
+            <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
+            <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+            <!-- {% endblock %} -->
+
+           </div>
+          </div>
+       </div>
+       <!-- /.container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>
