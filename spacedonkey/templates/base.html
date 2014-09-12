@@ -8,51 +8,22 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Spacedonkey - Max's personal website" name="description">
   <meta content="Max Shkurygin" name="author">
-  <link href="{% static 'favicon.ico' %}" rel="icon">
+  <link href="{% static 'static/favicon.ico' %}" rel="icon">
   <title>{% block title %} Spacedonkey.org {% endblock %}</title>
-  <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet" type="text/css">
-  <link href="{% static "css/spacedonkey.css" %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/spacedonkey.css' %}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 <!-- navbar begin -->
-{% block navbar %}
-    <div id="navigation" class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="{% url 'index' %}" class="navbar-brand"><span class="glyphicon glyphicon-th"></span> Spacedonkey.org</a>
-            </div>
-            <div class="navbar-collapse collapse navbar-responsive-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'blog:index' %}">Blog</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="https://github.com/mooja/">GitHub</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </div>
-{% endblock %}
-  <!-- navbar end -->
-   <!-- content -->
+{% include "navbar.html" %}
+<!-- navbar end -->
+<!-- content -->
 {% block content %}
 {% endblock %}
 <!-- content end -->
 <!-- footer begin -->
-{% block footer %}
-<div class="spacedonkey-footer text-center" id="contact">
-  <blockquote>
-    <small>&copy; Maxim Shkurygin <cite title="Source Title">2014</cite></small>
-  </blockquote>
-</div>
-{% endblock %}
+{% include "footer.html" %}
 <!-- footer end -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
 <script src="{% static "js/bootstrap.min.js" %}" type="text/javascript"></script>
