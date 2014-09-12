@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from blog.models import Post
+from django.views.generic import ListView, DetailView
 
-# Create your views here.
-def list_view(request):
-    post_list = Post.objects.all()
-    context = {'post_list': post_list}
-    return render(request, 'blog/list_view.html', context)
+
+class PostList(ListView):
+    model = Post
+
+    def get_queryset(self):
+        return Post.objects.order_by('-pub_date')

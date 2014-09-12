@@ -1,6 +1,7 @@
-from django.conf.urls import patterns, include, url
-from blog import views
+from django.conf.urls import patterns, url
+from blog.views import PostList
+
 
 urlpatterns = patterns('',
-    url(r'^$', views.list_view, name='list_view'),
+    url(r'^$', PostList.as_view(), name='index'),
 )
