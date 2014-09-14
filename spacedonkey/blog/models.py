@@ -4,9 +4,9 @@ from django.utils.text import slugify
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=15, unique=True, primary_key=True)
+    name = models.CharField(max_length=15, unique=True)
     description = models.CharField(max_length=200)
-    slug = models.CharField(max_length=200, default='')
+    slug = models.SlugField(max_length=200) 
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -25,18 +25,23 @@ class Tag(models.Model):
 class Post(models.Model):
     """ Basic blog post """
 
-    title = models.CharField(max_length=200, unique=True, primary_key=True)
-    slug = models.CharField(max_length=200, editable=False, default='')
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200)
     pub_date = models.DateTimeField('date published')
     text = models.TextField(blank=False)
-    text_markdown = models.TextField()
-    tags = models.ManyToManyField(Tag, blank=True, null=True, related_name='posts')
+    text_html = models.TextField()
+    tags = models.ManyToManyField(Tag, null=True, related_name='posts')
 
 
     def save(self, *args, **kwargs):
-        self.text_markdown = markdown(self.text, ['markdown.extensions.extra'])
+        self.text_html = markdown(self.text, ['markdown.extensions.extra'])
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
+
+    def text_html_with_tags(self):
+        return self.text_html
+    text_html_with_tags.allow_tags = True
+    text_html_with_tags.short_description = "Preview"
 
     def __str__(self):
         return self.title
