@@ -28,7 +28,7 @@ class Post(models.Model):
 
 
     def save(self, *args, **kwargs):
-        self.text_markdown = markdown(self.text)
+        self.text_markdown = markdown(self.text, ['markdown.extensions.extra'])
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
