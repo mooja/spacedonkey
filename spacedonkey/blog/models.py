@@ -38,10 +38,6 @@ class Post(models.Model):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
-    def text_html_with_tags(self):
-        return self.text_html
-    text_html_with_tags.allow_tags = True
-    text_html_with_tags.short_description = "Preview"
 
     def __str__(self):
         return self.title

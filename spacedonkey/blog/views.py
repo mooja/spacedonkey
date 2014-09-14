@@ -8,3 +8,9 @@ class PostList(ListView):
 
     def get_queryset(self):
         return Post.objects.order_by('-pub_date')
+
+class PostView(DetailView):
+    model = Post
+
+    def get_queryset(self):
+        return Post.objects.get
