@@ -2,8 +2,9 @@
     color: #fff;
     background-color: #141D27;
     box-sizing: border-box;
-    padding: 3em 0 4em;
-    font-weight: 500;
+    padding: 2em 0 1em;
+    font-weight: 400;
+    border-bottom: 4px solid #141D27;
 }
 
 .index-message {
