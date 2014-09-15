@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from blog.models import Post
 from django.views.generic import ListView, DetailView
 
@@ -9,8 +9,7 @@ class PostList(ListView):
     def get_queryset(self):
         return Post.objects.order_by('-pub_date')
 
-class PostView(DetailView):
-    model = Post
 
-    def get_queryset(self):
-        return Post.objects.get
+class PostDetailView(DetailView):
+    model = Post
+    context_object_name = 'post'
