@@ -13,3 +13,4 @@ class PostList(ListView):
 class PostDetailView(DetailView):
     model = Post
     context_object_name = 'post'
+
