@@ -34,30 +34,24 @@
             <div class="col-md-12">
                 <p>
                 <strong>Popular Topics</strong> | 
-                <button type="button" class="btn btn-primary btn-sm">Python</button>
-                <button type="button" class="btn btn-success btn-sm">Science Fiction</button>
-                <button type="button" class="btn btn-warning btn-sm">Personal Development</button>
-                <button type="button" class="btn btn-danger btn-sm">Doctor Who</button>
+                {% for tag in popular_tags %}
+                <span class="label label-default"><a href="blog/tag/{{ tag.slug }}">{{ tag.name }}</a></span>
+                {% endfor %}
                 </p>
             </div>
         </div>
+        {% if last_three_posts %}
         <div class="row">
+            {% for post in last_three_posts %}
             <div class="col-md-4 index-blog-entry">
-                <p><strong>This is title of the firt blog post</strong></p>
-                <p>{% lorem %}</p>
-                <p><center><a href="#">Read More.</a></center></p>
+                <p><strong>{{ post.title }}</strong></p>
+                <p>{{ post.text_html|safe }}</p>
+                <p class="small text-center">{{ post.pub_date|timesince }} ago</p>
+                <p class="text-center"><a href="{% url 'blog:post-detail' post.pk post.slug %}">Read More.</a></p>
             </div>
-            <div class="col-md-4 index-blog-entry">
-                <p><strong>This is title of the firt blog post</strong></p>
-                <p>{% lorem %}</p>
-                <p><center><a href="#">Read More.</a></center></p>
-            </div>
-            <div class="col-md-4 index-blog-entry">
-                <p><strong>This is title of the firt blog post</strong></p>
-                <p>{% lorem %}</p>
-                <p><center><a href="#">Read More.</a></center></p>
-            </div>
+            {% endfor %}
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
