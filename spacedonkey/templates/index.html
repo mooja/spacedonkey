@@ -35,7 +35,7 @@
                 <p>
                 <strong>Popular Topics</strong> | 
                 {% for tag in popular_tags %}
-                <span class="label label-default"><a href="blog/tag/{{ tag.slug }}">{{ tag.name }}</a></span>
+                <span class="label label-{% cycle 'default' 'success' 'info' 'warning' 'danger' %}"><a href="blog/tag/{{ tag.slug }}">{{ tag.name }}</a></span>
                 {% endfor %}
                 </p>
             </div>
@@ -44,7 +44,7 @@
         <div class="row">
             {% for post in last_three_posts %}
             <div class="col-md-4 index-blog-entry">
-                <p><strong>{{ post.title }}</strong></p>
+                <p><strong><a href="{% url 'blog:post-detail' post.pk post.slug %}">{{ post.title }}</a></strong></p>
                 <p>{{ post.text_html|safe }}</p>
                 <p class="small text-center">{{ post.pub_date|timesince }} ago</p>
                 <p class="text-center"><a href="{% url 'blog:post-detail' post.pk post.slug %}">Read More.</a></p>
