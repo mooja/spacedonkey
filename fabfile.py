@@ -25,10 +25,14 @@ def upstream_pull():
 
 
 def deploy():
-    lcd(local_root)
-    commit()
-    push()
+    # commit localy
+    with lcd(local_root):
+        commit()
+        push()
+
+    # pull and restart web server remotely
     with cd(remote_root):
         upstream_pull()
         upstream_restart_webserver()
+
     print("Deployment complete.")
