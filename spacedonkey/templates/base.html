@@ -3,16 +3,17 @@
 {% load static %}
 <html lang="en">
 <head>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,300italic,400italic' rel='stylesheet' type='text/css'>
   <meta charset="utf-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Spacedonkey - Max's personal website" name="description">
   <meta content="Max Shkurygin" name="author">
+  {% block meta %}{% endblock %}
   <link href="{% static 'favicon.ico' %}" rel="icon">
-  <title>{% block title %} Spacedonkey.org {% endblock %}</title>
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
   <link href="{% static 'css/spacedonkey.css' %}" rel="stylesheet" type="text/css">
+  <title>{% block title %} Spacedonkey.org {% endblock %}</title>
 </head>
 
 <body>
