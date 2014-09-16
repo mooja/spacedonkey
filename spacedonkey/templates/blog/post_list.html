@@ -32,7 +32,7 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="text-center">
-                <p><center><h4><small>{{ post.pub_date|date }}</small></h4></p></center>
+                <p class="text-center"><small>{{ post.pub_date|timesince }} ago</small></p>
                 <p><center><a href="{% url 'blog:post-detail' pk=post.pk slug=post.slug %}">Read More...</a></center></p>
             </div>
         </div>
