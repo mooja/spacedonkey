@@ -13,8 +13,8 @@
                 <p class="text-justify">I made this site to learn HTML, CSS, Javascript and the <a href="http://djangoproject.com" class="text-success">Django Web Framework</a> over the course of six months. Every day I will be spending at 30 impoving this website.</p>
                 <p><br/></p>
             </div>
-            <div class="col-md-6 text-center">
-                <img width="400" src="{% static "images/maxpizza.jpg" %}" class="img-responsive img-rounded center" alt="My Picture">
+            <div class="col-md-6">
+                <center><img width="400"  src="{% static "images/maxpizza.jpg" %}" class="img-rounded" alt="My Picture"></center>
             </div>
         </div>
     </div>
@@ -31,9 +31,8 @@
 <div class="index-blog-preview">
     <div class="container">
         <div class="row bottom-buffer-30">
-            <div class="col-md-12">
+            <div class="col-md-12 index-labels">
                 <p>
-                <strong>Popular Topics</strong> | 
                 {% for tag in popular_tags %}
                 <span class="label label-{% cycle 'default' 'success' 'info' 'warning' 'danger' %}"><a href="blog/tag/{{ tag.slug }}">{{ tag.name }}</a></span>
                 {% endfor %}

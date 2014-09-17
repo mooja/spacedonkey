@@ -4,8 +4,8 @@
     box-sizing: border-box;
     padding: 2em 0 1em;
     font-weight: 400;
-    border-bottom: 4px solid #141D27;
 }
+
 
 .index-message {
     font-weight: 300;
@@ -29,6 +29,10 @@
     padding-left: 1em;
     text-align: justify;
     line-height: 1.5em;
+}
+
+.index-labels {
+    line-height: 2em;
 }
 
 .blog-header {
