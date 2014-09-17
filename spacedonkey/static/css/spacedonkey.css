@@ -7,11 +7,13 @@
 }
 
 .index-message {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
     font-weight: 300;
     color: #fff;
     background-color: #204666;
     box-sizing: border-box;
-    padding: 0.5em 0 0.2em;
+    padding: 0.5em 0 0;
 }
 
 .index-blog-preview {
