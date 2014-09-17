@@ -6,7 +6,6 @@
     font-weight: 400;
 }
 
-
 .index-message {
     font-weight: 300;
     color: #fff;
@@ -35,6 +34,11 @@
     line-height: 2em;
 }
 
+.index-entry-title {
+    text-align: center;
+    font-weight: 300;
+}
+
 .blog-header {
     background-color: #E9F0F4;
     padding-bottom: 40px;
@@ -44,13 +48,11 @@
 .entry-title {
     font-weight: 300;
     margin: 20px 0 8px;
-    /* font-family: 'Slabo 27px', serif; */
 }
 
 .entry-preview {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5em;
-    /* font-family: 'Slabo 27px', serif; */
 }
 
 .spacedonkey-footer {
