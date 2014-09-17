@@ -18,4 +18,5 @@ class PostDetailView(DetailView):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['all_tags_list'] = Tag.objects.all()
         context['recent_posts'] = Post.objects.all()[:5]
+        context['all_post_list'] = Post.objects.order_by('-pub_date')
         return context

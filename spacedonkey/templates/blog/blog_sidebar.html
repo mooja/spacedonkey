@@ -1,10 +1,10 @@
 <div class="blog-sidebar">
-    <p>Browse by</p>
+    <p><strong>Browse by</strong></p>
     {% if all_tags_list %}
     <!-- browse by tags menu start --> 
     <div class="btn-group btn-group-sm">
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Tags<span class="caret"></span>
+            Tags <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
             {% for tag in all_tags_list %}
@@ -16,7 +16,7 @@
     {% endif %}
     <div class="btn-group btn-group-sm">
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Categories<span class="caret"></span>
+            Categories <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
             <li><a href="#">Personal Development (5)</a></li>
@@ -27,27 +27,39 @@
     <!-- browse by date menu start -->
     <div class="btn-group btn-group-sm">
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Time<span class="caret"></span>
+            Time <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-            <li><a href="#">2014 (12)</a></li>
-            <li class="divider"></li>
-            <li><a href="#">January (2)</a></li>
-            <li><a href="#">February (5)</a></li>
-            <li class="divider"></li>
-            <li><a href="#">2013 (3)</a></li>
-            <li class="divider"></li>
-            <li><a href="#">April (6)</a></li>
+            {% for post in all_post_list %}
+            {% ifchanged %}
+                <li class="divider"></li>
+                <li><a href="/blog/post/date/{{ post.pub_date|date:"Y" }}">{{ post.pub_date|date:"Y" }}</a></li>
+                <li class="divider"></li>
+            {% endifchanged %}
+            {% ifchanged %}
+                <li><a href="/blog/post/date/{{ post.pub_date|date:"Y" }}/{{ post.pub_date|date:"m" }}/">{{ post.pub_date|date:"F" }}</a></li>
+            {% endifchanged %}
+            {% endfor %}
         </ul>
     </div>
     <!-- browse by date menu stop -->
     <hr>
-    <!-- recent posts -->
     {% if recent_posts %}
-        <p>Recent</p>
+    <!-- recent posts -->
+    <h5><strong>Recent</strong></h5>
         {% for post in recent_posts %}
            <p><a href="{% url 'blog:post-detail' post.pk post.slug %}">&raquo; {{ post.title }}</a></p>
         {% endfor %}
+    <!-- end recent posts -->
     {% endif %}
     <hr>
-    <!-- end recent posts -->
+    <h5><strong> Archive </strong></h5>
+    {% for post in all_post_list %}
+        {% ifchanged %}
+            <p><strong><a href="/blog/post/date/{{ post.pub_date|date:"Y" }}">{{ post.pub_date|date:"Y" }}</a></strong></p>
+        {% endifchanged %}
+        {% ifchanged %}
+            <p>&raquo; <a href="/blog/post/date/{{ post.pub_date|date:"Y" }}/{{ post.pub_date|date:"m" }}/">{{ post.pub_date|date:"F" }}</a></p>
+        {% endifchanged %}
+    {% endfor %}
+    <hr>

@@ -16,7 +16,6 @@ Max's Blog
     </div>
 </div>
 
-{% if object_list %}
 {% for post in object_list %}
 <div class="container">
     <div class="row">
@@ -50,8 +49,7 @@ Max's Blog
         </div>
     </div>
 </div>
-{% endfor %}
-{% else %}
+{% empty %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -61,6 +59,6 @@ Max's Blog
         </div>
     </div>
 </div>
-{% endif %}
+{% endfor %}
 
 {% endblock %}
