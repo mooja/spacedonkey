@@ -4,5 +4,5 @@ from blog.views import PostList, PostDetailView
 
 urlpatterns = patterns('',
     url(r'^$', PostList.as_view(), name='index'),
-    url(r'^(?P<pk>\d+)/(?P<slug>[-_\w]+)/$', PostDetailView.as_view(), name='post-detail')
+    url(r'^post/(?P<pk>\d+)/(?P<slug>[-_\w]+)/$', PostDetailView.as_view(), name='post-detail')
 )
