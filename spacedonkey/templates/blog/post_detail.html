@@ -1,6 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>{{ post.title }}</h3>
-<p>{{ post.text_html|safe }}</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 blog-header">
+            <h2>{{ post.title }}</h2>
+            <p class="text-muted"> By Max Shkurygin </p>
+            <p>{{ post.pub_date|timesince }} ago.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container top-buffer-30">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="blog-entry-text">
+                <p>{{ post.text_html|safe }}</p>
+                <hr>
+                <p class="blog-entry-tags">
+                <small>
+                    {% for tag in post.tags.all %}
+                    <span class="label label-{% cycle 'default' 'success' 'info' 'warning' 'danger' %}"><a href="blog/tag/{{ tag.slug }}" rel="tag" title="{{ tag.description }}">{{ tag.name }}</a></span>
+                    {% endfor %}
+                </small>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            {% include "blog/blog_sidebar.html" %}
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}

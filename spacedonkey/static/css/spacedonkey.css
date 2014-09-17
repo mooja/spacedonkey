@@ -8,7 +8,7 @@
 
 .index-message {
     font-size: 14px;
-    font-family: Arial, sans-serif;
+    font-family: "Arial", sans-serif;
     font-weight: 300;
     color: #fff;
     background-color: #204666;
@@ -18,14 +18,12 @@
 
 .index-blog-preview {
     text-align: center;
-    box-sizing: border-box;
     background-color: #E9F0F4;
     padding: 1em 0 1em;
     font-weight: 300;
 }
 
 .index-blog-entry {
-    border-top: 4px solid #141D27;
     padding-top: 1em;
     padding-left: 1em;
     text-align: justify;
@@ -42,21 +40,38 @@
 }
 
 .blog-header {
+    text-align: center;
     font-weight: 300;
     background-color: #E9F0F4;
-    padding-bottom: 40px;
-    padding-top: 40px;
 }
 
 .blog-entry-title {
     font-weight: 300;
+    text-align: center;
 }
 
-.blog-entry-preview {
+.blog-entry-text {
     text-align: justify;
-    font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     line-height: 1.5em;
+}
+
+.blog-entry-metadata {
+    text-align: center;
+}
+
+.blog-entry-date {
+    font-weight: 300;
+}
+
+.blog-entry-tags {
+}
+
+.blog-sidebar {
+    font-family: "Arial", sans-serif;
+    font-size: 15px;
+    border-left: 2px dotted #E6E8EA;
+    padding-left: 1em;
 }
 
 .spacedonkey-footer {
@@ -77,6 +92,12 @@ a:hover {
 
 .bg-python-blue {
     background-color: #204666;
+}
+
+/* for debugging */
+.show-borders {
+    border-style: solid;
+    border-width: 2px;
 }
 
 

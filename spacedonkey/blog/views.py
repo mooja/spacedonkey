@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from blog.models import Post
-from django.views.generic import ListView, DetailView
+# from django.shortcuts import render
+from blog.models import Post, Tag
+from django.views.generic import DetailView, ListView
 
 
 class PostList(ListView):
@@ -14,3 +14,8 @@ class PostDetailView(DetailView):
     model = Post
     context_object_name = 'post'
 
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context['all_tags_list'] = Tag.objects.all()
+        context['recent_posts'] = Post.objects.all()[:5]
+        return context
