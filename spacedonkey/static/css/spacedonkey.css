@@ -47,12 +47,13 @@
     padding-top: 40px;
 }
 
-.entry-title {
+.blog-entry-title {
     font-weight: 300;
     margin: 20px 0 8px;
 }
 
-.entry-preview {
+.blog-entry-preview {
+    text-align: justify;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5em;
 }
