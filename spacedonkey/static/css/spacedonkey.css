@@ -42,18 +42,20 @@
 }
 
 .blog-header {
+    font-weight: 300;
     background-color: #E9F0F4;
     padding-bottom: 40px;
     padding-top: 40px;
 }
 
-.entry-title {
+.blog-entry-title {
     font-weight: 300;
-    margin: 20px 0 8px;
 }
 
-.entry-preview {
+.blog-entry-preview {
+    text-align: justify;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     line-height: 1.5em;
 }
 
@@ -63,13 +65,20 @@
   border-top: 1px solid #e5e5e5;
 }
 
-.seperator {
-    background: none repeat scroll 0 0 #f97e76;
-    height: 2px;
-    margin: 30px auto 0;
-    position: relative;
-    width: 50px;
+a:hover {
+    color: #F97E76;
 }
+
+/* helper classes */
+
+.bg-gray {
+    background-color: #E6E8EA;
+}
+
+.bg-python-blue {
+    background-color: #204666;
+}
+
 
 .top-buffer-7  { margin-top:7px; }
 .top-buffer-10 { margin-top:10px; }
@@ -78,7 +87,3 @@
 .top-buffer-30 { margin-top:30px; }
 .bottom-buffer-10 { margin-bottom:10px;}
 .bottom-buffer-30 { margin-bottom:30px;}
-
-.featurette-divider {
-  margin: 40px 0; /* Space out the Bootstrap <hr> more */
- }
