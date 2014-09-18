@@ -60,9 +60,9 @@ def generate_tags(n=10):
     tags = set()
     while len(tags) < n:
         name = fake.word()
+
         if len(Tag.objects.filter(name=name)):
             continue
-
         t = Tag()
         t.name = name
         t.description = fake.sentence()
