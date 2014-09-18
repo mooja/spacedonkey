@@ -1,24 +1,26 @@
 from fabric.api import *
 
 
-upstream_host = 'mooja@spacedonkey.org'
+localhost = 'localhost'
+upstream_host = 'spacedonkey.org'
 
 project_root = '/home/mooja/spacedonkey/'
 app_root = '/home/mooja/spacedonkey/spacedonkey/'
 python_path = "/home/mooja/envs/spacedonkey/bin/python"
 
 env.user = 'mooja'
-env.hosts.append(upstream_host)
+# env.hosts.append(upstream_host)
+# env.hosts.append(localhost)
 
 
 def commit():
     with cd(project_root):
-        run("git commit")
+        local("git commit")
 
 
 def push():
     with cd(project_root):
-        run("git push")
+        local("git push")
 
 
 def pull():
@@ -33,12 +35,11 @@ def restart_webserver():
 def deploy():
     print("Preparing to deploy...")
 
-    # commit locally
-    with settings(host='localhost'):
-        commit()
-        push()
+    # commit & push locally
+    commit()
+    push()
 
-    # pull remotely and restart server
+    # pull remotely and restart server remotely
     pull()
     restart_webserver()
 

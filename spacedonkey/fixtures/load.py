@@ -44,7 +44,8 @@ def generate_posts(tags, n=10, tags_per_post=5):
         p.text = "\n\n".join(fake.paragraphs(5))
         p.save()
 
-        p.tags = random.sample(tags, tags_per_post)
+        for t in random.sample(tags, tags_per_post):
+            p.tags.add(t)
         p.save()
 
         posts.append(p)
@@ -56,15 +57,22 @@ def generate_tags(n=10):
     fake = faker.Faker()
 
     # create tags
-    tags = []
-    for i in range(n):
-        t = Tag()
-        t.name = fake.word()
-        t.description = fake.sentence()
-        t.save()
-        tags.append(t)
+    tags = set()
+    while len(tags) < n:
+        name = fake.word()
+        if len(Tag.objects.filter(name=name)):
+            continue
 
-    return tags
+        t = Tag()
+        t.name = name
+        t.description = fake.sentence()
+        print("Created tag {}...".format(t))
+        print("Saving tag {}...".format(t))
+        t.save()
+        print("Saved.".format())
+        tags.add(t)
+
+    return list(tags)
 
 
 def dump_tables():
