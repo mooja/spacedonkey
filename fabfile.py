@@ -1,4 +1,5 @@
 from fabric.api import *
+from fabric.contrib.console import confirm
 
 
 localhost = 'localhost'
@@ -14,8 +15,11 @@ env.user = 'mooja'
 
 
 def commit():
-    with cd(project_root):
-        local("git commit")
+    with settings(warn_only=True):
+        with cd(project_root):
+            r = local("git commit")
+            if r.failed and not confirm("Commit failed. Continue?"):
+                abort()
 
 
 def push():
