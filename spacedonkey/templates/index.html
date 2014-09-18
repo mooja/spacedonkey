@@ -43,7 +43,7 @@
             {% for post in last_three_posts %}
             <div class="col-md-4 index-blog-entry">
                 <p class="index-entry-title"><strong><a href="{% url 'blog:post-detail' post.pk post.slug %}">{{ post.title }}</a></strong></p>
-                {{ post.text_html|safe }}
+                {{ post.first_n_paragraphs|safe }}
                 <p class="small text-center">{{ post.pub_date|timesince }} ago</p>
                 <p class="text-center"><strong><a href="{% url 'blog:post-detail' post.pk post.slug %}">&raquo; Read More.</a></strong></p>
             </div>

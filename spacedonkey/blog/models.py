@@ -38,6 +38,9 @@ class Post(models.Model):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
+    def first_n_paragraphs(self, n=2):
+        ps = self.text.split('\n\n')[:n]
+        return ''.join(["<p>{}</p>".format(p) for p in ps])
 
     def __str__(self):
         return self.title

@@ -28,7 +28,7 @@ Max's Blog
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="blog-entry-text">
-                <p>{{ post.text_html|safe }}</p>
+                {{ post.first_n_paragraphs|safe }}
             </div>
         </div>
     </div>
