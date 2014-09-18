@@ -18,7 +18,7 @@ def commit():
     with settings(warn_only=True):
         with cd(project_root):
             r = local("git commit")
-            if r.failed and not confirm("Commit failed. Continue?"):
+            if r.failed and not confirm("Commit is not clearn failed. Continue?"):
                 abort()
 
 
@@ -36,6 +36,11 @@ def restart_webserver():
     sudo("restart spacedonkey")
 
 
+def collectstatic():
+    with cd(app_root):
+        run("{python_path manage.py collectstatic".format(python_path))
+
+
 def deploy():
     print("Preparing to deploy...")
 
@@ -45,12 +50,13 @@ def deploy():
 
     # pull remotely and restart server remotely
     pull()
+    collectstatic()
     restart_webserver()
 
-    print("Deployment complete.")
+    print("Deployment complete. Mathematical!")
 
 
-def load_fixtures():
+def fixtures():
     with cd(app_root):
         with settings(warn_only=True):
             if not run("test -f db.sqlite3"):
