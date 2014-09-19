@@ -27,7 +27,7 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
 SECRET_KEY = 'cui5)fhophz1!qh)#r8iti89p70j+eqm4**53%@(*e1i#t8fsj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 

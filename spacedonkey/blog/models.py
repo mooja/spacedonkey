@@ -38,9 +38,14 @@ class Post(models.Model):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
-    def first_n_paragraphs(self, n=2):
+    def first_n_paragraphs(self, n=1):
         ps = self.text.split('\n\n')[:n]
         return ''.join(["<p>{}</p>".format(p) for p in ps])
+
+    def first_sentence(self):
+        import re
+        sentence = re.findall(r'([A-Z][\w ]+?\.)', self.text)[0]
+        return sentence
 
     def __str__(self):
         return self.title

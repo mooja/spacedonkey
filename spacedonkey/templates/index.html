@@ -2,54 +2,74 @@
 {% load static %}
 
 {% block content %}
-<div class="index-splash">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h3 class="text-center">Welcome to <strong>Spacedonkey</strong></h3>
-                <p class="lead text-center"> I'm <strong>Max,</strong><br/> a lover of science fiction,<br/> and an open source software enthusiast.</p>
-                <p class="text-center"><strong>"The best way to learn is by doing."</strong></p>
-                <p class="text-justify">I made this site to learn HTML, CSS, Javascript and the <a href="http://djangoproject.com" class="text-success">Django Web Framework</a> over the course of six months. Every day I will be spending 30 minutes impoving this website.</p>
-                <p><br/></p>
-            </div>
-            <div class="col-md-6">
-                <center><img width="400"  src="{% static "images/maxpizza.jpg" %}" class="img-rounded" alt="My Picture"></center>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="index-message">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p class="text-center"><span class="glyphicon glyphicon-comment"></span> Interested at learning how to make web sites from scratch? Follow my progress on the <a href="http://spacedonkey.org/blog/" class="text-warning">blog</a> or even take a look at my <a href="https://github.com/mooja/spacedonkey" class="text-warning">github</a></p>
+<section>
+    <div class="index-splash">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1 class="text-center">Welcome to <strong>Spacedonkey</strong></h1>
+                    <p class="lead text-center"> I'm <strong>Max,</strong><br/> a lover of science fiction,<br/> and an open source software enthusiast.</p>
+                    <p class="text-center"><strong>"The best way to learn is by doing."</strong></p>
+                    <p class="text-justify">I made this site to learn HTML, CSS, Javascript and the <a href="http://djangoproject.com" class="text-success">Django Web Framework</a> over the course of six months. Every day I will be spending 30 minutes impoving this website.</p>
+                    <p><br/></p>
+                    <!-- <center><img width="400"  src="{% static "images/maxpizza.jpg" %}" class="img-rounded" alt="My Picture"></center> -->
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="index-blog-preview">
+</section>
+<section>
+    <div id="index-message">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Want to learn how to make web sites from scratch? Follow my progress using the commit history on <a href="https://github.com/mooja/spacedonkey">github</a>.</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+<div id="index-blog-preview">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 index-labels">
-                <p>
-                {% for tag in popular_tags %}
-                <span class="label label-{% cycle 'default' 'success' 'info' 'warning' 'danger' %}"><a href="blog/tag/{{ tag.slug }}">{{ tag.name }}</a></span>
-                {% endfor %}
-                </p>
+            <div class="col-md-12">
+
             </div>
         </div>
-        {% if last_three_posts %}
+        {% for post in last_three_posts %}
         <div class="row">
-            {% for post in last_three_posts %}
-            <div class="col-md-4 index-blog-entry">
-                <p class="index-entry-title"><strong><a href="{% url 'blog:post-detail' post.pk post.slug %}">{{ post.title }}</a></strong></p>
-                {{ post.first_n_paragraphs|safe }}
-                <p class="small text-center">{{ post.pub_date|timesince }} ago</p>
-                <p class="text-center"><strong><a href="{% url 'blog:post-detail' post.pk post.slug %}">&raquo; Read More.</a></strong></p>
+            <div class="col-md-2">
+                <p class="text-muted text-right">{{ post.pub_date|date }}</p>
             </div>
-            {% endfor %}
+            {% comment %}
+            <div class="col-md-2">
+                <h4><a href="{% url 'blog:post-detail' post.pk post.slug %}">{{ post.title|slice:"50" }} <small>...</small></a></h4>
+            </div>
+            {% endcomment %}
+            <div class="col-md-8">
+                <p>{{ post.text|slice:"100" }} <small>...</small></p>
+            </div>
         </div>
-        {% endif %}
+        {% endfor %}
     </div>
 </div>
+
+<!-- <div class="index-blog-preview"> -->
+<!--     <div class="container"> -->
+<!--         {% if last_three_posts %} -->
+<!--         <div class="row"> -->
+<!--             {% for post in last_three_posts %} -->
+<!--             <div class="col-md-4 index-blog-entry"> -->
+<!--                 <p class="index-entry-title"><strong><a href="{% url 'blog:post-detail' post.pk post.slug %}">{{ post.title }}</a></strong></p> -->
+<!--                 {{ post.first_sentence|safe }} -->
+<!--                 <p class="small text-center">{{ post.pub_date|timesince }} ago</p> -->
+<!--                 <p class="text-center"><strong><a href="{% url 'blog:post-detail' post.pk post.slug %}">&raquo; Read More.</a></strong></p> -->
+<!--             </div> -->
+<!--             {% endfor %} -->
+<!--         </div> -->
+<!--         {% endif %} -->
+<!--     </div> -->
+<!-- </div> -->
+</section>
 {% endblock %}

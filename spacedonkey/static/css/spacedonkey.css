@@ -1,43 +1,77 @@
 .index-splash {
     color: #fff;
     background-color: #141D27;
-    box-sizing: border-box;
-    padding: 2em 0 1em;
-    font-weight: 400;
+    padding: 2em 1em 2em 1em;
 }
 
-.index-message {
-    font-size: 14px;
-    font-family: "Arial", sans-serif;
-    font-weight: 300;
+.index-splash p,h3 {
+}
+
+/* INDEX MESSAGE BLOCK BEGIN ***********************/
+
+#index-message {
     color: #fff;
     background-color: #204666;
-    box-sizing: border-box;
-    padding: 0.5em 0 0;
+    padding: 0 0 0 0;
 }
 
-.index-blog-preview {
-    text-align: center;
-    background-color: #E9F0F4;
-    padding: 1em 0 1em;
-    font-weight: 300;
+#index-message .container, .row, .col-md-12 {
+    padding: 0;
 }
+
+#index-message h3 {
+    text-align: center;
+    font-size: 16px;
+    font-family: "Arial", sans-serif;
+    margin: 1em 1em;
+}
+
+#index-message a, a:hover {
+    color: #FFD343;
+    font-weight: 600;
+}
+
+/* INDEX MESSAGE BLOCK END  ***********************/
+
+#index-blog-preview {
+    background-color: #E9F0F4;
+    padding: 1em 1em 1em;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+}
+
+#index-blog-preview h2 {
+}
+    
+#index-blog-preview h4 {
+    padding: 0;
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+}
+
+#index-blog-preview .col-md-2, .col-md-8 {
+    /*********************************************************************
+ *                                                                   *
+ *********************************************************************/
+    
+    padding-top: 0.4em;
+    border-top: 1px solid gray;
+}
+
 
 .index-blog-entry {
     padding-top: 1em;
     padding-left: 1em;
-    text-align: justify;
-    line-height: 1.5em;
-}
-
-.index-labels {
-    line-height: 2em;
 }
 
 .index-entry-title {
-    text-align: center;
     font-weight: 300;
 }
+
+
+
+
 
 .blog-header {
     text-align: center;
