@@ -56,10 +56,10 @@
     <h5><strong> Archive </strong></h5>
     {% for post in all_post_list %}
         {% ifchanged %}
-            <p><strong><a href="/blog/post/date/{{ post.pub_date|date:"Y" }}">{{ post.pub_date|date:"Y" }}</a></strong></p>
+        <p><strong><a href="{% url 'blog:post-list' post.pub_date.year %}">{{ post.pub_date|date:"Y" }}</a></strong></p>
         {% endifchanged %}
         {% ifchanged %}
-            <p>&raquo; <a href="/blog/post/date/{{ post.pub_date|date:"Y" }}/{{ post.pub_date|date:"m" }}/">{{ post.pub_date|date:"F" }}</a></p>
+        <p>&raquo; <a href="{% url 'blog:post-list' post.pub_date.year post.pub_date.month %}">{{ post.pub_date|date:"F" }}</a></p>
         {% endifchanged %}
     {% endfor %}
     <hr>

@@ -16,7 +16,27 @@ Max's Blog
     </div>
 </div>
 
-{% for post in object_list %}
+{% if year %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-center">
+                <p> All Entries for 
+                {% if month %}
+                    {% if day %}
+                        the {{ day }} of
+                    {% endif %}
+                    {{ month }}, 
+                {% endif %}
+                {{ year }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% for post in post_list %}
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">

@@ -5,9 +5,32 @@ from django.views.generic import DetailView, ListView
 
 class PostList(ListView):
     model = Post
+    context_object_name = 'post_list'
+
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+        context['year'] = self.kwargs.get('year', None)
+        context['month'] = self.kwargs.get('month', None)
+        context['day'] = self.kwargs.get('day', None)
+        return context
 
     def get_queryset(self):
-        return Post.objects.order_by('-pub_date')
+        query = Post.objects.all()
+
+        if self.kwargs.get('year', None):
+            year = int(self.kwargs['year'])
+            query = query.filter(pub_date__year=year)
+
+        if self.kwargs.get('month', None):
+            month = int(self.kwargs['month'])
+            query = query.filter(pub_date__month=month)
+
+        if self.kwargs.get('day', None):
+            day = int(self.kwargs['day'])
+            query = query.filter(pub_date__day=day)
+
+        return query
+
 
 
 class PostDetailView(DetailView):
