@@ -12,6 +12,7 @@ class PostList(ListView):
         context['year'] = self.kwargs.get('year', None)
         context['month'] = self.kwargs.get('month', None)
         context['day'] = self.kwargs.get('day', None)
+
         return context
 
     def get_queryset(self):
