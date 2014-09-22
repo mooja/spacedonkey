@@ -26,6 +26,10 @@ class PostList(ListView):
         context['day'] = self.kwargs.get('day', None)
         context['tag'] = self.kwargs.get('tag', None)
 
+        # filters
+        context['all_tags_list'] = Tag.objects.all()
+        context['all_post_list'] = Post.objects.order_by('-pub_date')
+
         return context
 
     def get_queryset(self):

@@ -15,6 +15,54 @@ Max's Blog
         </div>
     </div>
 </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center">
+        <p><strong>Browse by</strong></p>
+        {% if all_tags_list %}
+        <!-- browse by tags menu start --> 
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Tags <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                {% for tag in all_tags_list %}
+                <li><a href="/blog/tag/{{ tag.slug }}" rel="tag" title="{{ tag.description }}">{{ tag.name }} ({{ tag.num_posts }})</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- brose by tags menu stop --> 
+        {% endif %}
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Categories <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Personal Development (5)</a></li>
+                <li><a href="#">Technology (13)</a></li>
+                <li><a href="#">Computer Science (2)</a></li>
+            </ul>
+        </div>
+        <!-- browse by date menu start -->
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Time <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                {% for post in all_post_list %}
+                {% ifchanged %}
+                    <li class="divider"></li>
+                    <li><a href="{% url 'blog:post-list' post.pub_date.year %}">{{ post.pub_date|date:"Y" }}</a></li>
+                    <li class="divider"></li>
+                {% endifchanged %}
+                {% ifchanged %}
+                    <li><a href="{% url 'blog:post-list' post.pub_date.year post.pub_date.month %}">{{ post.pub_date|date:"F" }}</a></li>
+                {% endifchanged %}
+                {% endfor %}
+            </ul>
+        </div><!-- end col-md-12 -->
+    </div><!-- end row -->
+</div><!-- end container -->
 
 {% if year %}
 <div class="container-fluid">
