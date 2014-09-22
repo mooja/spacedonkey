@@ -38,7 +38,7 @@ def restart_webserver():
 
 def collectstatic():
     with cd(app_root):
-        run("{python_path manage.py collectstatic".format(python_path))
+        run("{python_path} manage.py collectstatic".format(python_path=python_path))
 
 
 def deploy():
